@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { sendAppointment } from "../server/appointment";
 import { services, brandNames } from "../config";
-import { formatTrPhone, formatPlaka } from "../lib/format";
+import {
+  formatTrPhone,
+  formatPlaka,
+  onlyDigits,
+  lettersOnly,
+  alphaNum,
+  cleanEmail,
+} from "../lib/format";
 import { Icon, serviceIconByCode } from "./site";
 
 type Status =
@@ -257,7 +264,7 @@ export function AppointmentWizard() {
                   className={field}
                   placeholder="Örn. Passat, Corolla"
                   value={form.model}
-                  onChange={(e) => set("model", e.target.value)}
+                  onChange={(e) => set("model", alphaNum(e.target.value))}
                 />
               </div>
             </div>
@@ -316,9 +323,7 @@ export function AppointmentWizard() {
                   inputMode="numeric"
                   placeholder="Örn. 120000"
                   value={form.km}
-                  onChange={(e) =>
-                    set("km", e.target.value.replace(/\D/g, "").slice(0, 7))
-                  }
+                  onChange={(e) => set("km", onlyDigits(e.target.value, 7))}
                 />
               </div>
               <div>
@@ -453,7 +458,7 @@ export function AppointmentWizard() {
                 <input
                   className={field}
                   value={form.ad}
-                  onChange={(e) => set("ad", e.target.value)}
+                  onChange={(e) => set("ad", lettersOnly(e.target.value))}
                 />
               </div>
               <div>
@@ -461,7 +466,7 @@ export function AppointmentWizard() {
                 <input
                   className={field}
                   value={form.soyad}
-                  onChange={(e) => set("soyad", e.target.value)}
+                  onChange={(e) => set("soyad", lettersOnly(e.target.value))}
                 />
               </div>
             </div>
@@ -488,7 +493,7 @@ export function AppointmentWizard() {
                   className={field}
                   placeholder="ornek@eposta.com"
                   value={form.eposta}
-                  onChange={(e) => set("eposta", e.target.value)}
+                  onChange={(e) => set("eposta", cleanEmail(e.target.value))}
                 />
               </div>
             </div>

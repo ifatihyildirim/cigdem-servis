@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendContact } from "../server/contact";
 import { serviceOptions } from "../config";
+import { formatTrPhone, lettersOnly, alphaNum } from "../lib/format";
 import { Icon } from "./site";
 
 type Status =
@@ -12,15 +13,6 @@ type Status =
 const field =
   "w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-ink-soft/60 outline-none transition-all focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10";
 const label = "mb-1.5 block text-sm font-semibold text-navy";
-
-// TR telefon maskesi: sadece rakam, en fazla 11 hane, "0### ### ## ##" formatı.
-function formatTrPhone(value: string): string {
-  let d = value.replace(/\D/g, "");
-  if (d && d[0] !== "0") d = "0" + d; // her zaman 0 ile başlasın
-  d = d.slice(0, 11);
-  const p = [d.slice(0, 4), d.slice(4, 7), d.slice(7, 9), d.slice(9, 11)];
-  return p.filter(Boolean).join(" ");
-}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
@@ -91,6 +83,9 @@ export function ContactForm() {
             required
             className={field}
             placeholder="Adınız"
+            onChange={(e) => {
+              e.currentTarget.value = lettersOnly(e.currentTarget.value);
+            }}
           />
         </div>
         <div>
@@ -124,6 +119,9 @@ export function ContactForm() {
             name="vehicle"
             className={field}
             placeholder="Örn. VW Passat 2018"
+            onChange={(e) => {
+              e.currentTarget.value = alphaNum(e.currentTarget.value, 60);
+            }}
           />
         </div>
         <div>
