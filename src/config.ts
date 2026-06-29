@@ -25,20 +25,20 @@ export const site = {
   reviewUrl: "https://www.google.com/maps?cid=8254337231463074497",
 } as const;
 
-// Servis verilen markalar (yerel SEO + güven). Logo: Clearbit logo API, yedek: yazı.
+// Servis verilen markalar (yerel SEO + güven). Logo: car-logos-dataset (GitHub raw), yedek: yazı.
 export const brands = [
-  { name: "Volkswagen", domain: "volkswagen.com" },
-  { name: "Audi", domain: "audi.com" },
-  { name: "BMW", domain: "bmw.com" },
-  { name: "Mercedes", domain: "mercedes-benz.com" },
-  { name: "Renault", domain: "renault.com" },
-  { name: "Ford", domain: "ford.com" },
-  { name: "Fiat", domain: "fiat.com" },
-  { name: "Toyota", domain: "toyota.com" },
-  { name: "Hyundai", domain: "hyundai.com" },
-  { name: "Peugeot", domain: "peugeot.com" },
-  { name: "Opel", domain: "opel.com" },
-  { name: "Skoda", domain: "skoda-auto.com" },
+  { name: "Volkswagen", slug: "volkswagen" },
+  { name: "Audi", slug: "audi" },
+  { name: "BMW", slug: "bmw" },
+  { name: "Mercedes", slug: "mercedes-benz" },
+  { name: "Renault", slug: "renault" },
+  { name: "Ford", slug: "ford" },
+  { name: "Fiat", slug: "fiat" },
+  { name: "Toyota", slug: "toyota" },
+  { name: "Hyundai", slug: "hyundai" },
+  { name: "Peugeot", slug: "peugeot" },
+  { name: "Opel", slug: "opel" },
+  { name: "Skoda", slug: "skoda" },
 ];
 
 export const brandNames = brands.map((b) => b.name);
