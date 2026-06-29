@@ -2,7 +2,7 @@ import { useState } from "react";
 import { sendContact } from "../server/contact";
 import { serviceOptions } from "../config";
 import { formatTrPhone, lettersOnly, alphaNum } from "../lib/format";
-import { Icon } from "./site";
+import { Icon, Select } from "./site";
 
 type Status =
   | { state: "idle" }
@@ -128,7 +128,7 @@ export function ContactForm() {
           <label className={label} htmlFor="service">
             Hizmet
           </label>
-          <select id="service" name="service" className={field} defaultValue="">
+          <Select id="service" name="service" className={field} defaultValue="">
             <option value="" disabled>
               Seçiniz
             </option>
@@ -138,7 +138,7 @@ export function ContactForm() {
               </option>
             ))}
             <option value="Diğer">Diğer / Emin değilim</option>
-          </select>
+          </Select>
         </div>
       </div>
 

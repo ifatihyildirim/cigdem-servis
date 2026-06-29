@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, SelectHTMLAttributes } from "react";
 import { Link } from "@tanstack/react-router";
 import { site } from "../config";
 
@@ -103,6 +103,7 @@ const I = {
     "M9 7H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v4M19 7h-3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v4",
   arrow: "M5 12h14M13 6l6 6-6 6",
   mail: "M4 6h16v12H4zM4 7l8 6 8-6",
+  chevron: "M6 9l6 6 6-6",
 };
 
 export function Icon({
@@ -125,6 +126,31 @@ export function Icon({
     >
       <path d={I[name]} />
     </svg>
+  );
+}
+
+/** Native select — özel chevron, input'larla aynı görünüm. */
+export function Select({
+  className = "",
+  children,
+  ...props
+}: SelectHTMLAttributes<HTMLSelectElement>) {
+  const empty = props.value === "";
+  return (
+    <div className="relative">
+      <select
+        {...props}
+        className={`${className} cursor-pointer appearance-none pr-10 ${
+          empty ? "!text-ink-soft" : ""
+        }`}
+      >
+        {children}
+      </select>
+      <Icon
+        name="chevron"
+        className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft"
+      />
+    </div>
   );
 }
 

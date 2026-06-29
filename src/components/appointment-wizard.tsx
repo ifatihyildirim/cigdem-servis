@@ -9,7 +9,7 @@ import {
   alphaNum,
   cleanEmail,
 } from "../lib/format";
-import { Icon, serviceIconByCode } from "./site";
+import { Icon, Select, serviceIconByCode } from "./site";
 
 type Status =
   | { state: "idle" }
@@ -251,7 +251,7 @@ export function AppointmentWizard() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className={label}>Marka *</label>
-                <select
+                <Select
                   className={field}
                   value={form.marka}
                   onChange={(e) => set("marka", e.target.value)}
@@ -263,7 +263,7 @@ export function AppointmentWizard() {
                     </option>
                   ))}
                   <option value="Diğer">Diğer</option>
-                </select>
+                </Select>
               </div>
               <div>
                 <label className={label}>Model *</label>
@@ -278,7 +278,7 @@ export function AppointmentWizard() {
             <div className="grid gap-4 sm:grid-cols-3">
               <div>
                 <label className={label}>Model yılı</label>
-                <select
+                <Select
                   className={field}
                   value={form.yil}
                   onChange={(e) => set("yil", e.target.value)}
@@ -289,11 +289,11 @@ export function AppointmentWizard() {
                       {y}
                     </option>
                   ))}
-                </select>
+                </Select>
               </div>
               <div>
                 <label className={label}>Yakıt</label>
-                <select
+                <Select
                   className={field}
                   value={form.yakit}
                   onChange={(e) => set("yakit", e.target.value)}
@@ -304,11 +304,11 @@ export function AppointmentWizard() {
                       {y}
                     </option>
                   ))}
-                </select>
+                </Select>
               </div>
               <div>
                 <label className={label}>Vites</label>
-                <select
+                <Select
                   className={field}
                   value={form.vites}
                   onChange={(e) => set("vites", e.target.value)}
@@ -319,7 +319,7 @@ export function AppointmentWizard() {
                       {y}
                     </option>
                   ))}
-                </select>
+                </Select>
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -444,7 +444,7 @@ export function AppointmentWizard() {
               </div>
               <div>
                 <label className={label}>Saat</label>
-                <select
+                <Select
                   className={field}
                   value={form.saat}
                   onChange={(e) => set("saat", e.target.value)}
@@ -455,7 +455,7 @@ export function AppointmentWizard() {
                       {s}
                     </option>
                   ))}
-                </select>
+                </Select>
               </div>
             </div>
 
