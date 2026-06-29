@@ -7,3 +7,5 @@ dist
 *.local
 .env
 src/routeTree.gen.ts
+.vercel
+.env*.local
