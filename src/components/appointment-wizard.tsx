@@ -72,8 +72,8 @@ const wizSteps = [
 ] as const;
 
 const field =
-  "w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-ink-soft/60 outline-none transition-all focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10";
-const label = "mb-1.5 block text-sm font-semibold text-navy";
+  "w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-soft/50 outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10";
+const label = "mb-1.5 block text-[13px] font-semibold text-navy";
 
 export function AppointmentWizard() {
   const [step, setStep] = useState(0);
@@ -190,7 +190,7 @@ export function AppointmentWizard() {
   return (
     <div className="card overflow-hidden p-0">
       {/* stepper */}
-      <div className="border-b border-line bg-canvas/60 px-5 py-6 sm:px-8">
+      <div className="border-b border-line bg-[#f7faff] px-5 py-5 sm:px-7">
         <div className="flex items-center">
           {wizSteps.map((st, i) => {
             const done = i < step;
@@ -200,21 +200,28 @@ export function AppointmentWizard() {
                 key={st.title}
                 className="flex flex-1 items-center last:flex-none"
               >
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <span
-                    className={`grid h-11 w-11 place-items-center rounded-full transition-colors ${
+                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-full transition-colors ${
                       active
                         ? "bg-brand text-white ring-4 ring-brand/15"
                         : done
                           ? "bg-brand text-white"
-                          : "bg-white text-ink-soft border border-line"
+                          : "border border-line bg-white text-ink-soft"
                     }`}
                   >
-                    <Icon name={done ? "check" : st.icon} className="h-5 w-5" />
+                    <Icon
+                      name={done ? "check" : st.icon}
+                      className="h-[18px] w-[18px]"
+                    />
                   </span>
                   <span
-                    className={`hidden text-center text-xs font-semibold sm:block ${
-                      active || done ? "text-navy" : "text-ink-soft"
+                    className={`hidden text-[13px] font-semibold leading-tight md:block ${
+                      active
+                        ? "text-brand"
+                        : done
+                          ? "text-navy"
+                          : "text-ink-soft"
                     }`}
                   >
                     {st.title}
@@ -222,7 +229,7 @@ export function AppointmentWizard() {
                 </div>
                 {i < wizSteps.length - 1 && (
                   <span
-                    className={`mx-2 h-0.5 flex-1 rounded ${
+                    className={`mx-3 h-0.5 flex-1 rounded-full transition-colors ${
                       done ? "bg-brand" : "bg-line"
                     }`}
                   />
@@ -231,12 +238,12 @@ export function AppointmentWizard() {
             );
           })}
         </div>
-        <p className="mt-4 text-center text-sm text-ink-soft sm:hidden">
-          {step + 1}/3 · {wizSteps[step].title}
+        <p className="mt-3 text-center text-[13px] font-medium text-ink-soft md:hidden">
+          Adım {step + 1}/3 · {wizSteps[step].title}
         </p>
       </div>
 
-      <div className="p-6 sm:p-9">
+      <div className="p-6 sm:p-8">
         {/* STEP 0 — Araç */}
         {step === 0 && (
           <div className="grid gap-4">

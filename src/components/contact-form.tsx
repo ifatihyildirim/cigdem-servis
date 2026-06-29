@@ -11,8 +11,8 @@ type Status =
   | { state: "error"; message: string };
 
 const field =
-  "w-full rounded-xl border border-line bg-canvas px-4 py-3 text-ink placeholder:text-ink-soft/60 outline-none transition-all focus:border-brand focus:bg-white focus:ring-4 focus:ring-brand/10";
-const label = "mb-1.5 block text-sm font-semibold text-navy";
+  "w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-soft/50 outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10";
+const label = "mb-1.5 block text-[13px] font-semibold text-navy";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });

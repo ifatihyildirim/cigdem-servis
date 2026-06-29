@@ -32,45 +32,47 @@ function Randevu() {
         }}
         aria-hidden
       />
-      <Container className="relative max-w-3xl">
-        <div className="text-center">
-          <Eyebrow>Online Randevu</Eyebrow>
-          <h1 className="mt-5 text-[clamp(2.2rem,5vw,3.6rem)]">
-            Birkaç adım, <span className="text-brand">net bir fiyat</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ink-soft">
-            Aracınızı ve istediğiniz hizmeti seçin, uygun saati belirleyin. Sizi
-            arayıp randevunuzu netleştirelim.
+      <Container className="relative">
+        <div className="mx-auto max-w-2xl">
+          <div className="text-center">
+            <Eyebrow>Online Randevu</Eyebrow>
+            <h1 className="mt-5 text-[clamp(2.2rem,5vw,3.6rem)]">
+              Birkaç adım, <span className="text-brand">net bir fiyat</span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ink-soft">
+              Aracınızı ve istediğiniz hizmeti seçin, uygun saati belirleyin.
+              Sizi arayıp randevunuzu netleştirelim.
+            </p>
+
+            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {perks.map((p) => (
+                <li
+                  key={p}
+                  className="flex items-center gap-1.5 text-sm font-medium text-navy"
+                >
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-brand text-white">
+                    <Icon name="check" className="h-3 w-3" />
+                  </span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-10">
+            <AppointmentWizard />
+          </div>
+
+          <p className="mt-6 text-center text-ink-soft">
+            Telefonla randevu:{" "}
+            <a
+              href={site.phoneHref}
+              className="font-semibold text-brand hover:text-brand-ink"
+            >
+              {site.phoneLabel}
+            </a>
           </p>
-
-          <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2">
-            {perks.map((p) => (
-              <li
-                key={p}
-                className="flex items-center gap-1.5 text-sm font-medium text-navy"
-              >
-                <span className="grid h-5 w-5 place-items-center rounded-full bg-brand text-white">
-                  <Icon name="check" className="h-3 w-3" />
-                </span>
-                {p}
-              </li>
-            ))}
-          </ul>
         </div>
-
-        <div className="mt-10">
-          <AppointmentWizard />
-        </div>
-
-        <p className="mt-6 text-center text-ink-soft">
-          Telefonla randevu:{" "}
-          <a
-            href={site.phoneHref}
-            className="font-semibold text-brand hover:text-brand-ink"
-          >
-            {site.phoneLabel}
-          </a>
-        </p>
       </Container>
     </section>
   );
