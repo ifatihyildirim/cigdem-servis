@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sendAppointment } from "../server/appointment";
-import { services, brandNames } from "../config";
+import { services, allBrands } from "../config";
 import {
   formatTrPhone,
   formatPlaka,
@@ -257,7 +257,7 @@ export function AppointmentWizard() {
                   onChange={(e) => set("marka", e.target.value)}
                 >
                   <option value="">Seçiniz</option>
-                  {brandNames.map((b) => (
+                  {allBrands.map((b) => (
                     <option key={b} value={b}>
                       {b}
                     </option>
