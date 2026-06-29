@@ -104,6 +104,8 @@ const I = {
   arrow: "M5 12h14M13 6l6 6-6 6",
   mail: "M4 6h16v12H4zM4 7l8 6 8-6",
   chevron: "M6 9l6 6 6-6",
+  menu: "M4 7h16M4 12h16M4 17h16",
+  close: "M6 6l12 12M18 6 6 18",
 };
 
 export function Icon({
@@ -215,10 +217,15 @@ function Logo({ size = "h-9 w-9" }: { size?: string }) {
 }
 
 export function Nav() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-md">
       <Container className="flex h-[68px] items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
+        <Link
+          to="/"
+          className="flex items-center gap-2.5"
+          onClick={() => setOpen(false)}
+        >
           <Logo />
           <span className="font-display text-lg font-extrabold text-navy">
             {site.name}
@@ -238,7 +245,7 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5">
           <a
             href={site.phoneHref}
             className="hidden items-center gap-2 text-[15px] font-bold text-navy sm:flex"
@@ -246,11 +253,46 @@ export function Nav() {
             <Icon name="phone" className="h-4 w-4 text-brand" />
             {site.phoneLabel}
           </a>
-          <Button to="/randevu" className="px-5 py-2.5 text-[14px]">
+          <Button to="/randevu" className="px-4 py-2.5 text-[14px] sm:px-5">
             Randevu
           </Button>
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
+            aria-expanded={open}
+            className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-white text-navy md:hidden"
+          >
+            <Icon name={open ? "close" : "menu"} className="h-5 w-5" />
+          </button>
         </div>
       </Container>
+
+      {/* mobile menu */}
+      {open && (
+        <div className="border-t border-line bg-canvas/95 backdrop-blur-md md:hidden">
+          <Container className="flex flex-col py-3">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-3 py-3 text-[16px] font-medium text-navy transition-colors hover:bg-white [&.active]:text-brand"
+                activeOptions={{ exact: n.to === "/" }}
+              >
+                {n.label}
+              </Link>
+            ))}
+            <a
+              href={site.phoneHref}
+              className="mt-2 flex items-center gap-2 rounded-xl bg-white px-3 py-3 font-bold text-navy"
+            >
+              <Icon name="phone" className="h-4 w-4 text-brand" />
+              {site.phoneLabel}
+            </a>
+          </Container>
+        </div>
+      )}
     </header>
   );
 }
