@@ -1,0 +1,23 @@
+{
+  "name": "cigdem-servis",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.131.2",
+    "@tanstack/react-start": "^1.131.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.5",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.1.5",
+    "typescript": "^5.7.2",
+    "vite": "^7.1.0"
+  }
+}

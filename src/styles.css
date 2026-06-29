@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap");
+@import "tailwindcss";
+
+/* ── Çiğdem Servis · aydınlık & güven veren tasarım sistemi ─────────── */
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --color-canvas: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-ink: #14253a;
+  --color-ink-soft: #5d6b7c;
+  --color-navy: #0c2747;
+  --color-brand: #2563eb;
+  --color-brand-ink: #1d4ed8;
+  --color-brand-soft: #e9f1ff;
+  --color-line: #e4eaf2;
+  --color-amber: #f59e0b;
+  --color-success: #16a34a;
+
+  --shadow-soft: 0 8px 30px -12px rgba(12, 39, 71, 0.18);
+  --shadow-lift: 0 22px 50px -20px rgba(12, 39, 71, 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-brand);
+    color: #fff;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+}
+
+@layer utilities {
+  /* very soft dotted backdrop */
+  .dotgrid {
+    background-image: radial-gradient(rgba(37, 99, 235, 0.12) 1.3px, transparent 1.3px);
+    background-size: 26px 26px;
+  }
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-soft);
+  }
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+  /* staggered intro reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* layered gradient-mesh atmosphere for hero */
+  .mesh {
+    background-color: #eef4fd;
+    background-image:
+      radial-gradient(42rem 30rem at 85% -10%, rgba(37, 99, 235, 0.16), transparent 60%),
+      radial-gradient(34rem 26rem at 8% 8%, rgba(12, 39, 71, 0.1), transparent 55%),
+      radial-gradient(28rem 24rem at 60% 110%, rgba(245, 158, 11, 0.1), transparent 60%);
+  }
+
+  /* brand wordmark marquee */
+  .marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scrollx 32s linear infinite;
+  }
+  @keyframes scrollx {
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* native <details> accordion polish */
+  .faq summary {
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq summary .chev {
+    transition: transform 0.3s ease;
+  }
+  .faq details[open] summary .chev {
+    transform: rotate(45deg);
+  }
+}
