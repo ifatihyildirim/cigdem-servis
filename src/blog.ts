@@ -119,6 +119,138 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "kaporta-boya-fiyatlari-nasil-belirlenir",
+    title: "Kaporta ve Boya Fiyatları Nasıl Belirlenir?",
+    description:
+      "Kaporta boya fiyatını ne belirler? Hasarın boyutu, parça, işçilik ve boya kalitesi. Maslak'ta şeffaf kaporta-boya fiyatlandırması.",
+    date: "2026-06-02",
+    readMins: 5,
+    tag: "Kaporta",
+    body: [
+      {
+        t: "p",
+        x: "Kaporta ve boya, aracın hem görünümü hem değeri için en kritik işlemlerden biridir. Peki fiyat neye göre belirlenir, neden serviste serviste değişir? İşte fiyatı etkileyen başlıca kalemler.",
+      },
+      { t: "h2", x: "Kaporta-boya fiyatını etkileyen 5 faktör" },
+      {
+        t: "ul",
+        x: [
+          "Hasarın boyutu ve derinliği (çizik mi, göçük mü, kaza hasarı mı)",
+          "İşlem türü: lokal boya, panel boyası veya PDR (boyasız göçük onarımı)",
+          "Değişecek parça gerekip gerekmediği (orijinal / eşdeğer)",
+          "Boya kalitesi ve renk eşleştirme zorluğu (metalik, sedef vb.)",
+          "İşçilik süresi ve fırın boyahane kullanımı",
+        ],
+      },
+      { t: "h2", x: "Boyasız göçük onarımı (PDR) ile tasarruf" },
+      {
+        t: "p",
+        x: "Boyası çatlamamış küçük göçüklerde PDR yöntemiyle, boya yapmadan onarım mümkündür. Bu hem daha ucuz hem de aracın orijinal boyasını korur — ikinci el değerini düşürmez.",
+      },
+      {
+        t: "p",
+        x: "Çiğdem Servis'te kaporta-boya işlemine başlamadan önce hasarı inceleyip yazılı, kalem kalem bir teklif sunarız. Onayınız olmadan işlem yapmaz, fabrika çıkışı görünüm için renk eşleştirmesini titizlikle yaparız.",
+      },
+    ],
+  },
+  {
+    slug: "yag-degisimi-kac-kilometrede-bir",
+    title: "Motor Yağı Değişimi Kaç Kilometrede Bir Yapılır?",
+    description:
+      "Motor yağı kaç km'de bir değişir? Dizel ve benzinde fark, yağ tipi ve geciktirmenin riskleri. Maslak Çiğdem Servis rehberi.",
+    date: "2026-05-25",
+    readMins: 4,
+    tag: "Bakım",
+    body: [
+      {
+        t: "p",
+        x: "Motor yağı, motorun kanı gibidir; parçaları yağlar, soğutur ve temiz tutar. Zamanında değişmeyen yağ, motor ömrünü ciddi biçimde kısaltır. Peki ne sıklıkla değişmeli?",
+      },
+      { t: "h2", x: "Genel kural" },
+      {
+        t: "ul",
+        x: [
+          "Mineral yağ: ~7.500 km veya 6 ayda bir",
+          "Yarı sentetik: ~10.000 km veya yılda bir",
+          "Tam sentetik: ~15.000 km veya yılda bir",
+          "Şehir içi yoğun trafik / kısa mesafe: aralığı kısaltın",
+        ],
+      },
+      { t: "h2", x: "Yağ filtresi de değişmeli mi?" },
+      {
+        t: "p",
+        x: "Evet. Her yağ değişiminde yağ filtresinin de değişmesi gerekir; aksi halde yeni yağ, eski filtredeki kirle hızla kirlenir. Çiğdem Servis'te yağ değişiminde filtreyi standart olarak yenileriz ve aracınızın üretici özelliklerine uygun yağı kullanırız.",
+      },
+    ],
+  },
+  {
+    slug: "lastik-rot-balans-ne-zaman",
+    title: "Lastik, Rot ve Balans: Ne Zaman Gerekir?",
+    description:
+      "Direksiyon titriyor, araç bir tarafa çekiyor mu? Rot ayarı ve balansın belirtileri, lastik değişim zamanı. Maslak'ta lastik hizmetleri.",
+    date: "2026-04-20",
+    readMins: 4,
+    tag: "Lastik",
+    body: [
+      {
+        t: "p",
+        x: "Lastikler ve doğru rot-balans ayarı, sürüş güvenliğinin temelidir. Yanlış ayar; lastiği erken aşındırır, yakıtı artırır ve fren mesafesini uzatır.",
+      },
+      { t: "h2", x: "Rot ayarı gerektiğinin belirtileri" },
+      {
+        t: "ul",
+        x: [
+          "Araç düz yolda bir tarafa çekiyor",
+          "Direksiyon ortada değilken araç düz gidiyor",
+          "Lastiklerin iç veya dış kenarı düzensiz aşınıyor",
+        ],
+      },
+      { t: "h2", x: "Balans gerektiğinin belirtileri" },
+      {
+        t: "ul",
+        x: [
+          "Belli bir hızda direksiyonda titreme",
+          "Yeni lastik takıldıktan sonra hissedilen titreşim",
+        ],
+      },
+      {
+        t: "p",
+        x: "Mevsimlik lastik değişimi, dijital rot ayarı ve balansı Çiğdem Servis'te tek seferde yaptırarak düzgün ve güvenli bir sürüşe kavuşabilirsiniz.",
+      },
+    ],
+  },
+  {
+    slug: "ikinci-el-arac-ekspertiz-neden-onemli",
+    title: "İkinci El Araç Alırken Ekspertiz Neden Şart?",
+    description:
+      "Alım öncesi araç ekspertizi gizli hasarı ve boyayı ortaya çıkarır. İstanbul'da güvenli ikinci el alımı için ekspertiz rehberi.",
+    date: "2026-03-30",
+    readMins: 5,
+    tag: "Ekspertiz",
+    body: [
+      {
+        t: "p",
+        x: "İkinci el araçta en büyük risk, gözle görünmeyen hasarlardır. Birkaç yüz liralık ekspertiz, on binlerce liralık sürprizden korur. Alım öncesi mutlaka bağımsız bir ekspertiz yaptırın.",
+      },
+      { t: "h2", x: "Ekspertizde neler kontrol edilir?" },
+      {
+        t: "ul",
+        x: [
+          "Boya ve hasar ölçümü (her panelde boya kalınlığı)",
+          "Şasi ve kaporta bütünlüğü",
+          "Motor ve şanzıman durumu, kaçak kontrolü",
+          "OBD ile elektronik arıza taraması",
+          "Süspansiyon, fren ve lastik durumu",
+        ],
+      },
+      { t: "h2", x: "Bağımsız ekspertizin avantajı" },
+      {
+        t: "p",
+        x: "Satıcının değil, sizin adınıza yapılan tarafsız bir kontrol, gerçek durumu şeffaf biçimde ortaya koyar. Çiğdem Servis'te 0–100 detaylı ekspertizle aracın boya-hasar geçmişini ve mekanik durumunu yazılı raporla sunarız.",
+      },
+    ],
+  },
 ];
 
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
