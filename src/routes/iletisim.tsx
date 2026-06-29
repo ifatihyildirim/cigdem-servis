@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Container, Eyebrow, Icon } from "../components/site";
+import { Container, Eyebrow, Icon, WhatsappGlyph } from "../components/site";
 import { ContactForm } from "../components/contact-form";
 import { pageMeta } from "../components/seo";
 import { site } from "../config";
@@ -21,7 +21,7 @@ const mapSrc =
 const rows = [
   { icon: "phone", k: "Telefon", v: site.phoneLabel, href: site.phoneHref },
   {
-    icon: "check",
+    icon: "whatsapp",
     k: "WhatsApp",
     v: "Mesaj gönderin",
     href: site.whatsappHref,
@@ -96,15 +96,24 @@ function InfoCard({
   v,
   href,
 }: {
-  icon: "phone" | "check" | "pin" | "clock";
+  icon: "phone" | "whatsapp" | "pin" | "clock";
   k: string;
   v: string;
   href?: string;
 }) {
+  const isWa = icon === "whatsapp";
   const body = (
     <>
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-brand">
-        <Icon name={icon} className="h-5 w-5" />
+      <span
+        className={`grid h-10 w-10 place-items-center rounded-xl ${
+          isWa ? "bg-[#25D366]/10 text-[#25D366]" : "bg-brand-soft text-brand"
+        }`}
+      >
+        {isWa ? (
+          <WhatsappGlyph className="h-5 w-5" />
+        ) : (
+          <Icon name={icon} className="h-5 w-5" />
+        )}
       </span>
       <div className="mt-3">
         <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
